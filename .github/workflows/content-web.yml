@@ -7,8 +7,8 @@ on:
     - main
     paths:
     - 'content-web/**'
-    - web.deployment.yml
-    - web.service.yml
+    - web.deployment.yaml
+    - web.service.yaml
 
   # Configure workflow to also support triggering manually
   workflow_dispatch:
@@ -73,8 +73,8 @@ jobs:
       uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          web.deployment.yml
-          web.service.yml
+          web.deployment.yaml
+          web.service.yaml
         images: |
           ${{ env.containerRegistry }}.azurecr.io/${{ env.imageRepository }}:${{ env.tag }}
         imagepullsecrets: |
